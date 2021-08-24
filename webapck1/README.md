@@ -19,7 +19,7 @@
 1. 安装webapck webapck-cli
     npm i webpack@4.41.1 webpack-cli@3.3.1 --D
 
-  npx webapck 
+    npx webapck 
 2. 配置概览
     入口(entry) 输出(output) loader(解析器)  插件(plugin) 模式(mode)
     详见 https://v4.webpack.docschina.org/concepts/
