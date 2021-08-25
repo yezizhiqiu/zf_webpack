@@ -1,0 +1,14 @@
+{
+  "presets":[
+    ["@babel/preset-env",{
+      "useBuiltIns":"usage",//按需加载
+      "corejs":3 //babel/poliyfill 解析高版本语法 promise class
+    }]
+  ],
+  "plugins":[// 上往下加载
+    "@babel/plugin-transform-runtime",
+    // @babel/plugin-transform-runtime @babel/runtime 去除冗余代码 
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],//草案语法
+    ["@babel/plugin-proposal-class-properties", { "loose": true}],//宽松语法 
+  ]
+}
