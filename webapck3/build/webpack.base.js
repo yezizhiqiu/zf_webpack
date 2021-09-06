@@ -24,7 +24,7 @@ module.exports = (env)=>{
     // },
     entry:{
       index:path.resolve(__dirname,'../src/index.js'),
-      //other:path.resolve(__dirname,'../src/other.js')
+      other:path.resolve(__dirname,'../src/other.js')
     },
     output:{
       // filename:"bundle[hash:8].js",
@@ -39,12 +39,12 @@ module.exports = (env)=>{
       // open:true,
       compress: true,
       contentBase:'aa',//aa目录下得静态资源文件也可以访问
-      before(app){//after 以9999创建一个服务 没有跨域
-        app.get('/api/user',function(req,res){
-          res.json({name:'zf'})
-          console.log(req.headers);
-        })
-      },
+      // before(app){//after 以9999创建一个服务 没有跨域
+      //   app.get('/api/user',function(req,res){
+      //     res.json({name:'zf'})
+      //     console.log(req.headers);
+      //   })
+      // },
       // proxy:{
       //   "/api":{
       //     target:"http://localhost:6000",// 设置请求服务器地址
@@ -55,7 +55,6 @@ module.exports = (env)=>{
       // }
     },
     plugins:[
-      new webapck.HotModuleReplacementPlugin(),//局部热更新
       // new webapck.ProvidePlugin({// 可以把变量变成每个模块都可使用 ，但不是放在window上 结合cdn使用
       //   "$":'jquery'
       // }),
@@ -67,13 +66,13 @@ module.exports = (env)=>{
       new HtmlWebpackPlugin({
         template:path.resolve(__dirname,'../public/index.html'),
         filename:'index.html',
-        //chunks:["index"]
+        chunks:["index"]
       }),
-      // new HtmlWebpackPlugin({
-      //   template:path.resolve(__dirname,'../public/other.html'),
-      //   filename:'other.html',
-      //   chunks:["other"]
-      // }),
+      new HtmlWebpackPlugin({
+        template:path.resolve(__dirname,'../public/other.html'),
+        filename:'other.html',
+        chunks:["other"]
+      }),
       //...htmlPlugs
       // new BundleAnalyzerPlugin()
     ],
@@ -211,8 +210,10 @@ module.exports = (env)=>{
     },
   }
   if(env.development){
+    console.log(merge(base,dev));
     return merge(base,dev)
   }else{
+    console.log(merge(base,dev));
     return merge(base,prod)
   }
 };

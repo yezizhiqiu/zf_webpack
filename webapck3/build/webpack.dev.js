@@ -1,4 +1,7 @@
 const webapck  = require('webpack')
 module.exports={
-  mode:"development"
+  mode:"development",
+  plugins:[
+    new webapck.HotModuleReplacementPlugin(),//局部热更新
+  ]
 }

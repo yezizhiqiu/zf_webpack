@@ -1,10 +1,10 @@
-// import $ from 'jquery'
+import $ from 'jquery'
 // require("expose-loader?$!jquery");
 // import './a';
-// console.log(window.$);
+console.log(window.$);
 
 // import test from"./test"//是副作用
-// import "./index.css"
+import "./index.css"
 // let foo = "bar";
 // function sun(){
 //   // /console.log(a);
